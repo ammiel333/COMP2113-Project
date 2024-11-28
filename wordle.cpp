@@ -42,18 +42,3 @@ bool isWordInDictionary(const std::string& word, const std::string& dictionaryFi
 
     return false; // 단어가 사전에 없음
 }
-
-
-/**
-
-
-int main() {
-    std::string dictionaryFile = "dictionary.txt";
-    std::string inputWord;
-
-    std::cout << "Input word ";
-    std::cin >> inputWord;
-
-    return 0;
-}
-**/
