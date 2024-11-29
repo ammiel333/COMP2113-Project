@@ -12,7 +12,7 @@ int main() {
     string answer = generateRandomWord(dictionaryFile); 
     cout << "Welcome to Wordle! You get 6 chances to guess a 5-letter word. " 
 
-    while (attempt <= maxAttepts){
+    while (attempt <= maxAttempts){
         cout << "Input word for attempt " << attempt << <<"/" << maxAttempts << ": "<< endl; 
         cin >> inputWord;
 
@@ -21,39 +21,41 @@ int main() {
         //check if word is valid 
         if (!isValid(inputWord){
             cout << "Invalid input, please try again." << endl; 
+            continue; 
         }
 
         //check if the word is not in dictionary 
         if (!isWordInDictionary(inputWord, dictionaryFile)){
             cout << "Not in the wordlist, please try again." << endl; 
+            continue; 
         }
         //if the input is correct
         if (inputWord == answer){
             switch (attempt) {
                 case 1: 
-                cout << "Genius! You guessed the word \"" << answer << "\" on your first try. " endl;
+                cout << "Genius! You guessed the word \"" << answer << "\" on your first try. " << endl;
                 break; 
                 case 2: 
-                cout << "Magnificant! You guessed the word \"" << answer << "\" on your second try." endl;
+                cout << "Magnificant! You guessed the word \"" << answer << "\" on your second try." << endl;
                 break; 
                 case 3: 
-                cout << "Impressive! You guessed the word \"" << answer << "\" on your third try." endl;
+                cout << "Impressive! You guessed the word \"" << answer << "\" on your third try." << endl;
                 break; 
                 case 4: 
-                cout << "Splendid! You guessed the word \"" << answer << "\" on your fourth try." endl;
+                cout << "Splendid! You guessed the word \"" << answer << "\" on your fourth try." << endl;
                 break; 
                 case 5: 
-                cout << "Great! You guessed the word \"" << answer << "\" on your fifth try." endl;
+                cout << "Great! You guessed the word \"" << answer << "\" on your fifth try." << endl;
                 break; 
                 case 6: 
-                cout << "Phew! You guessed the word \"" << answer << "\" on your sixth try." endl;
+                cout << "Phew! You guessed the word \"" << answer << "\" on your sixth try." << endl;
                 break; 
             }
             break; 
         }
-        //feedback 
-        string feedback = CorrectGuess(inputWord, answer); 
-        cout << "Feedback: " feedback << endl; 
+        //provide feedback to the user
+        string feedback = CorrectGuess(answer, inputWord); 
+        cout << "Feedback: " << feedback << endl; 
         attempt++; 
     }
 
