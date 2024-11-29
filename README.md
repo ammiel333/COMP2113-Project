@@ -1,4 +1,4 @@
-# About Wordle
+# Wordle Game
 
 Welcome! Wordle is a popular game that requires the player to guess a 5-letter word. The player has 6 chances, and feedback is provided for each attempt.
 
