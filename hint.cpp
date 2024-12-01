@@ -12,6 +12,7 @@ int hintLocation(const vector <bool> found){
   
   // if the answer was found, but hint was called 
   if (notFound->empty()) {
+    delete notFound; 
     return -1; 
   }
 
@@ -21,5 +22,6 @@ int hintLocation(const vector <bool> found){
   uniform_int_distribution<> distrib(0, notFound->size() -1); 
 
   int position = (*notFound)[distrib(gen)]; 
+  delete notFound; 
   return position; 
 }
