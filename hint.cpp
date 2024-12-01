@@ -2,11 +2,13 @@
 #include <vector>
 using namespace std; 
 
-int hintLocation(const vector <bool> found){
-  vector <int> *notFound = new vector<int>(); 
-  for (int i = 0; i < found.size(); ++i){
-    if (!found[i]){
-      notFound->push_back(i); 
+int hintLocation(const vector <bool>& found){
+  vector <int>* notFound = new vector<int>(); 
+
+  vector<bool>::const_iterator current; 
+  for (current = found.begin(); current != found.end(); ++current){
+    if (!(*current)){
+      notFound->push_back(distance(found.begin(), current)); 
     }
   }
   
