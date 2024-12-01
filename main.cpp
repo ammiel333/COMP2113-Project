@@ -3,6 +3,7 @@
 #include "correctguess.h" 
 #include "generateRandomWord.h"
 #include "wordle.h"
+#include "hint.h" 
 using namespace std; 
 
 int main() {
@@ -11,13 +12,31 @@ int main() {
     int attempt = 1; 
     string inputWord; 
     string answer = generateRandomWord(dictionaryFile); 
-    bool guessedCorrectly = false; 
+    bool guessedCorrectly = false, hintUsed = false; 
+    vector <bool> found = {false, false, false, false, false}; 
     
-    cout << "Welcome to Wordle! You get 6 chances to guess a 5-letter word. " <<endl; 
+    cout << "Welcome to Wordle! You get 6 chances to guess a 5-letter word. " <<endl;
+    cout << "Write \"hint\" anytime to get one of the alphabets and its location randomly. You only have one hint. " << endl; 
 
     while (attempt <= maxAttempts){
         cout << "Input word for attempt " << attempt <<"/" << maxAttempts << ": "<< endl; 
         cin >> inputWord;
+
+        if (inputWord == "hint"){
+            if(!hintUsed){
+                hintUsed = true; 
+                int hintIndex = hintLocation(found); 
+    
+                if(hintIndex == -1){
+                    cout << "You have already found the answer." << endl; 
+                    continue; 
+                }
+                char hintLetter = answer[hintIndex]; 
+                cout << "Hint: The letter '"<< hintLetter << "'is at postion " << hintIdex + 1 << "." << endl; 
+            }
+            else {cout << "Hint is already used." << endl;}
+            continue; 
+        }
 
         convertLowercase(inputWord); 
 
@@ -36,6 +55,7 @@ int main() {
         //if the input is correct
         if (inputWord == answer){
             guessedCorrectly = true; 
+            hintUsed = true; 
             switch (attempt) {
                 case 1: 
                 cout << "Genius! You guessed the word \"" << answer << "\" on your first try. " << endl; break;
@@ -54,8 +74,8 @@ int main() {
         }
         
         //provide feedback to the user
-        string feedback = CorrectGuess(answer, inputWord); 
-        cout << "Feedback: " << feedback << endl; 
+        string feedback = CorrectGuess(answer, inputWord, found); 
+        cout << feedback << endl; 
         attempt++; 
     }
 
