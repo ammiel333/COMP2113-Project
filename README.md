@@ -5,7 +5,7 @@ Welcome! Wordle is a popular game that requires the player to guess a 5-letter w
 ---
 
 ## Team Members 
-Jaeyoung Shim (3035899266) 
+Jennifer0903 - Jaeyoung Shim (3035899266) 
 
 ---
 
