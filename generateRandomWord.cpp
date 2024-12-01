@@ -41,10 +41,3 @@ string generateRandomWord(const string& fileName) {
     
     return words[randomIndex];
 }
-
-int main() {
-    
-    string fileName = "dictionary.txt";
-    string randomString = generateRandomWord(fileName);
-    
-}
