@@ -12,6 +12,9 @@ void gameInstructions(){
     std::cout << "A "  << BLACK << B_YELLOW << "YELLOW" << RESET << " tile means that the letter is in the word BUT NOT in the right spot.\n";
     std::cout << "A " << BLACK << B_GRAY << "GRAY" << RESET << " tile means that the letter is NOT in the word.\n\n";
     sleep(1);
+    std::cout << "Type \"quit\" anytime to quit the game. " << endl; 
+    std::cout << "Type \"hint\" anytime to get one of the alphabets and its location randomly. You only have one hint. " << endl; 
+    sleep(1);
     std::cout << "Good luck with your guesses!\n";
 }
 
@@ -45,7 +48,7 @@ void printResults(std::vector<std::vector<char>> & charr, std::vector<std::vecto
     
 };
 
-void endgame(const int & currentTry){
+void endGame(const int & currentTry){
     if(currentTry == 1){    
         std::cout << "You got the answer with only " << currentTry << " try !\n";
     }
@@ -61,8 +64,8 @@ void endgame(const int & currentTry){
     std::cout << "\n";
 }                   
 
-void earlyEndgame(const int & currentTry, const std::string & input2, const int & present, const std::string & word, const bool & match){
-    if(input2 == "Q" && currentTry < 6){
+void earlyEndGame(const int & currentTry, const std::string & input2, const int & present, const std::string & word, const bool & match){
+    if(input2 == "quit" && currentTry <= 6){
         std::cout << "It's sad you gave up trying!\n";
         }
     else if(present != -1){
