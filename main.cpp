@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
+#include <vector> 
 #include "correctguess.h" 
 #include "generateRandomWord.h"
 #include "wordle.h"
 #include "hint.h" 
+#include "wordle_main2.h"
 using namespace std; 
 
 int main() {
@@ -14,13 +16,18 @@ int main() {
     string answer = generateRandomWord(dictionaryFile); 
     bool guessedCorrectly = false, hintUsed = false; 
     vector <bool> found = {false, false, false, false, false}; 
-    
-    cout << "Welcome to Wordle! You get 6 chances to guess a 5-letter word. " <<endl;
-    cout << "Write \"hint\" anytime to get one of the alphabets and its location randomly. You only have one hint. " << endl; 
+
+    gameInstructions();  
 
     while (attempt <= maxAttempts){
         cout << "Input word for attempt " << attempt <<"/" << maxAttempts << ": "<< endl; 
         cin >> inputWord;
+
+        //if user quits the game
+        if (inputWord == "quit"){
+            earlyEndGame(attempt, inputWord, -1, answer, guessedCorrectly); 
+            return 0; 
+        }
 
         if (inputWord == "hint"){
             if(!hintUsed){
@@ -28,11 +35,10 @@ int main() {
                 int hintIndex = hintLocation(found); 
     
                 if(hintIndex == -1){
-                    cout << "You have already found the answer." << endl; 
+                    cout << "You already know all letters of the answer." << endl; 
                     continue; 
                 }
-                char hintLetter = answer[hintIndex]; 
-                cout << "Hint: The letter '"<< hintLetter << "'is at postion " << hintIdex + 1 << "." << endl; 
+                cout << "Hint: The letter '"<< answer[hintIndex] << "'is at postion " << hintIdex + 1 << "." << endl; 
             }
             else {cout << "Hint is already used." << endl;}
             continue; 
@@ -53,27 +59,14 @@ int main() {
         }
         
         //if the input is correct
-        if (inputWord == answer){
+        if(inputWord == answer){
             guessedCorrectly = true; 
-            hintUsed = true; 
-            switch (attempt) {
-                case 1: 
-                cout << "Genius! You guessed the word \"" << answer << "\" on your first try. " << endl; break;
-                case 2: 
-                cout << "Magnificant! You guessed the word \"" << answer << "\" on your second try." << endl; break;
-                case 3: 
-                cout << "Impressive! You guessed the word \"" << answer << "\" on your third try." << endl; break; 
-                case 4: 
-                cout << "Splendid! You guessed the word \"" << answer << "\" on your fourth try." << endl; break;
-                case 5: 
-                cout << "Great! You guessed the word \"" << answer << "\" on your fifth try." << endl; break;
-                case 6: 
-                cout << "Phew! You guessed the word \"" << answer << "\" on your sixth try." << endl; break;
-            }
-            break; 
+            hintused = true; 
+            endGame(attempt); 
+            return 0; 
         }
         
-        //provide feedback to the user
+        //provide feedback for incorrect guess
         string feedback = CorrectGuess(answer, inputWord, found); 
         cout << feedback << endl; 
         attempt++; 
@@ -81,7 +74,7 @@ int main() {
 
     //when the user wasn't able to find the answer 
     if (!guessedCorrectly){
-        cout << "The answer was: " << answer << endl; 
+        earlyEndGame(CurrentAttempt, inputWord, -1, answer, guessedCorrectly); 
     }
     
     return 0;
