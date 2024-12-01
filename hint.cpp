@@ -3,22 +3,23 @@
 using namespace std; 
 
 int hintLocation(const vector <bool> found){
-  vector <int> notFound; 
+  vector <int> *notFound = new vector<int>(); 
   for (int i = 0; i < found.size(); ++i){
     if (!found[i]){
-      notFound.push_back(i); 
+      notFound->push_back(i); 
     }
   }
   
   // if the answer was found, but hint was called 
-  if (notFound.empty()) {
+  if (notFound->empty()) {
     return -1; 
   }
 
   //choose a random index from the notFound vector 
   random_device rd; 
   mt19937 gen(rd()); 
-  uniform_int_distribution<> distrib(0, notFound.size() -1); 
+  uniform_int_distribution<> distrib(0, notFound->size() -1); 
 
-  return notFound[distrib(gen)]; 
+  int position = (*notFound)[distrib(gen)]; 
+  return position; 
 }
