@@ -22,15 +22,3 @@ std::string CorrectGuess(const std::string& targetWord, const std::string& guess
     return feedback;
 }
 
-int main() {
-    std::string targetWord = "apple";
-    std::string guess = "orange";
-
-    // Placeholder for the feedback function
-    std::string feedback = CorrectGuess(targetWord, guess);
-
-    // Output the color-coded feedback
-    std::cout << feedback << std::endl;
-
-    return 0;
-}
