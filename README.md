@@ -58,6 +58,15 @@ This file contains the code to check the format of the input and converts it int
 * **Input Format Checking**: isValid() function checks if the user input is in a right format; It checks if the input is a valid 5-letter word that exists, and checks if any of the letters are in upper case.
 * **Converting to lowercase**: convertLowercase() function checks if the input is in upper case, and converts it into lower case when upper case letter is found.
 * **Checking if the input is a valid word**: isWordInDictionary() function is a boolean function that checks if the word input is a valid word. It is done by checking if the word is in the dictionary file where the 5-letter word is saved.
+
+### 4) wordle.h
+
+This file is a header file corresponding to wordle.cpp file, which declares the functions in the wordle.cpp so that they can be used in a separate main.cpp file.
+
+It declares the following functions:
+* isValid()
+* convertLowercase()
+* isWordInDictionary()
   
 ---
 
