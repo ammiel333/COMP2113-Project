@@ -3,6 +3,10 @@
 
 #include <string>
 
+bool isValid(std::string input);
+
+void convertLowercase(std::string& input);
+
 bool isWordInDictionary(const std::string& word, const std::string& dictionaryFile);
 
-#endif 
+#endif // WORDLE_H
