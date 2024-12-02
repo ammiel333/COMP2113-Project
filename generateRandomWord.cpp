@@ -74,7 +74,7 @@ void freeWordList(WordList& wordList) {
 
 }
 
-// Function to generate a random word from the WordList
+// Function to generate a random word from the wordList
 string generateRandomWord(WordList& wordList) {
 
     // Initialize Mersenne Twister engine random number generator
