@@ -8,6 +8,7 @@ Welcome! Wordle is a popular game that requires the player to guess a 5-letter w
 Jennifer0903 - Jaeyoung Shim (3035899266) <br />
 codeoflassitude - Kashaf Shahid (3036181719) <br />
 ammiel333 - Sungmin Kim (3036136001) <br />
+dkyng1125 - Dokyung Yum (3036135631) <br />
 
 ---
 
