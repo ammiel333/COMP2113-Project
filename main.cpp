@@ -40,7 +40,7 @@ int main() {
                     cout << "You already know all letters of the answer." << endl; 
                     continue; 
                 }
-                cout << "Hint: The letter '"<< answer[hintIndex] << "'is at postion " << hintIdex + 1 << "." << endl; 
+                cout << "Hint: The letter '"<< answer[hintIndex] << "'is at postion " << hintIndex + 1 << "." << endl; 
             }
             else {cout << "Hint is already used." << endl;}
             continue; 
@@ -63,7 +63,7 @@ int main() {
         //if the input is correct
         if(inputWord == answer){
             guessedCorrectly = true; 
-            hintused = true; 
+            hintUsed = true; 
             endGame(attempt); 
             freeWordList(wordList);
             return 0; 
