@@ -13,7 +13,8 @@ int main() {
     const int maxAttempts = 6; 
     int attempt = 1; 
     string inputWord; 
-    string answer = generateRandomWord(dictionaryFile); 
+    WordList wordList = loadWords(dictionaryFile);
+    string answer = generateRandomWord(wordList); 
     bool guessedCorrectly = false, hintUsed = false; 
     vector <bool> found = {false, false, false, false, false}; 
 
@@ -26,6 +27,7 @@ int main() {
         //if user quits the game
         if (inputWord == "quit"){
             earlyEndGame(attempt, inputWord, -1, answer, guessedCorrectly); 
+            freeWordList(wordList);
             return 0; 
         }
 
@@ -63,6 +65,7 @@ int main() {
             guessedCorrectly = true; 
             hintused = true; 
             endGame(attempt); 
+            freeWordList(wordList);
             return 0; 
         }
         
@@ -76,7 +79,8 @@ int main() {
     if (!guessedCorrectly){
         earlyEndGame(CurrentAttempt, inputWord, -1, answer, guessedCorrectly); 
     }
-    
+
+    freeWordList(wordList);
     return 0;
 }
 
