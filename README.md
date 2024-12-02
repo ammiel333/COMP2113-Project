@@ -25,7 +25,7 @@ dkyng1125 - Dokyung Yum (3036135631) <br />
 
 ## Features Included
 
-It includes a list of features included in the code by each team member. 
+It provides a list of features implemented by each team member in the code.
 
 ---
 
@@ -37,9 +37,16 @@ This file contains the code for selecting a random position of a letter in the t
 * **Identify unfound letters in the vector**: It scans through the found vector and identify indices of letter that have not been guessed yet. This is dynamically allocated in a a new data structure. 
 * **Randomly select a hint index**: It randomly selects one index from the vector that stores location of unfound letters.
 * **Dynamic memory management for temporary storage**: The notfound vector temporarily store the indices of unfound letter.
-* **Program codes in multiple files**: hint.cpp is called in the main.cpp file based on the user's input. 
+* **Program codes in multiple files**: hint.cpp is called in the main.cpp file based on the user's input.
+
+### 2) hint.h
+
+This is a header file for hint.cpp file. 
+
+It declares the following function: 
+* hintLocation()
  
-### 2) main.cpp
+### 3) main.cpp
 
 This file manages the game flow by handling user interactions, validating input, and make use of all the other files to serve as the core driver fo the Wordle game. 
 
@@ -47,12 +54,12 @@ This file manages the game flow by handling user interactions, validating input,
 * **Input Validation**: It calls the isValid() and isWordInDictionary() functions for validation.
 * **Hints**: hintLoacation() function is called by the user's request to randomly generate a position that the player hasn't guessed correctly and provide the letter and its position.
 * **Feedback on Guesses**: Feedback is provided for each guess using the CorrectGuess function.
-* **Mutliple Attempts**: The player is allowed up to 6 attempts through using the data structure attempt to store the current attempt number.
+* **Mutliple Attempts**: A while loop enables the player to have up to 6 attempts using the int data structure to store the current attempt number.
 * **Endgame Scenarios**: Both success and failures are handled using endGame() and enaryEndGame() functions.
 * **Modular Design**: This program utilizes multiple files for different functions of the game.
 
 ## 2. Sungmin Kim (3036136001)
-### 3) wordle.cpp
+### 4) wordle.cpp
 
 This file contains the code to check the format of the input and converts it into lowercase if it is not. It also checks if the input is a valid word.
 
@@ -60,7 +67,7 @@ This file contains the code to check the format of the input and converts it int
 * **Converting to lowercase**: convertLowercase() function checks if the input is in upper case, and converts it into lower case when upper case letter is found.
 * **Checking if the input is a valid word**: isWordInDictionary() function is a boolean function that checks if the word input is a valid word. It is done by checking if the word is in the dictionary file where the 5-letter word is saved.
 
-### 4) wordle.h
+### 5) wordle.h
 
 This file is a header file corresponding to wordle.cpp file, which declares the functions in the wordle.cpp so that they can be used in a separate main.cpp file.
 
@@ -72,7 +79,7 @@ It declares the following functions:
 ---
 
 ## 3. Dokyung Yun (3036135631)
-### 5) generateRandomWord.cpp
+### 6) generateRandomWord.cpp
 
 This file contains the code to load words from the specified text file and store the words in the array using dynamic memory management. Then, generate the random word which become a answer of the game. 
 
@@ -81,7 +88,7 @@ This file contains the code to load words from the specified text file and store
 * **Free the memory**: freeWordLists() function frees the memory allocated for WordList structure.
 * **Generate random word for game**: generateRandomWord() function return a random word from the array of wordList by generating random index using Mersenne Twister engine and uniform distribution.
 
-### 6) generateRandomWord.h
+### 7) generateRandomWord.h
 
 This file is a header file corresponding to generateRandomWord.cpp file, which declares a structure and functions in the generateRandomWord.cpp so that they can be used in a separate generateRandomWord.cpp file.
 
