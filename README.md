@@ -5,9 +5,9 @@ Welcome! Wordle is a popular game that requires the player to guess a 5-letter w
 ---
 
 ## Team Members 
-Jennifer0903 - Jaeyoung Shim (3035899266)
-codeoflassitude - Kashaf Shahid (3036181719)
-ammiel333 - Sungmin Kim (3036136001)
+Jennifer0903 - Jaeyoung Shim (3035899266)\n
+codeoflassitude - Kashaf Shahid (3036181719)\n
+ammiel333 - Sungmin Kim (3036136001)\n
 
 ---
 
