@@ -72,7 +72,7 @@ It declares the following functions:
 ---
 
 ## 3. Dokyung Yun (3036135631)
-### 5) generateRandomeWord.cpp
+### 5) generateRandomWord.cpp
 
 This file contains the code to load words from the specified text file and store the words in the array using dynamic memory management. Then, generate the random word which become a answer of the game. 
 
