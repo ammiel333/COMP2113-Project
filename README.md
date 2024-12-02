@@ -48,7 +48,16 @@ This file manages the game flow by handling user interactions, validating input,
 * **Feedback on Guesses**: Feedback is provided for each guess using the CorrectGuess function.
 * **Mutliple Attempts**: The player is allowed up to 6 attempts through using the data structure attempt to store the current attempt number.
 * **Endgame Scenarios**: Both success and failures are handled using endGame() and enaryEndGame() functions.
-* **Modular Design**: This program utilizes multiple files for different functions of the game. 
+* **Modular Design**: This program utilizes multiple files for different functions of the game.
+
+## 2. Sungmin Kim (3036136001)
+### 3) wordle.cpp
+
+This file contains the code to check the format of the input and converts it into lowercase if it is not. It also checks if the input is a valid word.
+
+* **Input Format Checking**: isValid() function checks if the user input is in a right format; It checks if the input is a valid 5-letter word that exists, and checks if any of the letters are in upper case.
+* **Converting to lowercase**: convertLowercase() function checks if the input is in upper case, and converts it into lower case when upper case letter is found.
+* **Checking if the input is a valid word**: isWordInDictionary() function is a boolean function that checks if the word input is a valid word. It is done by checking if the word is in the dictionary file where the 5-letter word is saved.
   
 ---
 
