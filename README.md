@@ -70,4 +70,26 @@ It declares the following functions:
   
 ---
 
+## 3. Dokyung Yun (3036135631)
+### 5) generateRandomeWord.cpp
+
+This file contains the code to load words from the specified text file and store the words in the array using dynamic memory management. Then, generate the random word which become a answer of the game. 
+
+* **WordList Structure**: structure WordList holds the dynamically allocated array of words and the number of words from the file. 
+* **Load words from the file**: loadWords() function loads the words from the specified file and dynamically allocate the words in the array with the size of number of words in the file. 
+* **Free the memory**: freeWordLists() function frees the memory allocated for WordList structure.
+* **Generate random word for game**: generateRandomWord() function return a random word from the array of wordList by generating random index using Mersenne Twister engine and uniform distribution.
+
+### 6) generateRandomWord.h
+
+This file is a header file corresponding to generateRandomWord.cpp file, which declares a structure and functions in the generateRandomWord.cpp so that they can be used in a separate generateRandomWord.cpp file.
+
+It declares the following structure and functions:
+* struct WordList
+* loadWords()
+* freeWordList()
+* generateRandomWord()
+
+---
+
 
