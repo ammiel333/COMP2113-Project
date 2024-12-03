@@ -8,7 +8,7 @@ Welcome! Wordle is a popular game that requires the player to guess a 5-letter w
 Jennifer0903 - Jaeyoung Shim (3035899266) <br />
 codeoflassitude - Kashaf Shahid (3036181719) <br />
 ammiel333 - Sungmin Kim (3036136001) <br />
-dkyng1125 - Dokyung Yum (3036135631) <br />
+dkyng1125 - Dokyung Yun (3036135631) <br />
 
 ---
 
@@ -89,22 +89,22 @@ This file manages the game flow by handling user interactions, validating input,
 * **Modular Design**: This program utilizes multiple files for different functions of the game.
 
 ## 2. Sungmin Kim (3036136001)
-### 4) wordle.cpp
+### 4) `wordle.cpp`
 
 This file contains the code to check the format of the input and converts it into lowercase if it is not. It also checks if the input is a valid word.
 
-* **Input Format Checking**: isValid() function checks if the user input is in a right format; It checks if the input is a valid 5-letter word that exists, and checks if any of the letters are in upper case.
-* **Converting to lowercase**: convertLowercase() function checks if the input is in upper case, and converts it into lower case when upper case letter is found.
-* **Checking if the input is a valid word**: isWordInDictionary() function is a boolean function that checks if the word input is a valid word. It is done by checking if the word is in the dictionary file where the 5-letter word is saved.
+* **Input Format Checking**: `isValid()` function checks if the user input is in a right format; It checks if the input is a valid 5-letter word that exists, and checks if any of the letters are in upper case.
+* **Converting to lowercase**: `convertLowercase()` function checks if the input is in upper case, and converts it into lower case when upper case letter is found.
+* **Checking if the input is a valid word**: `isWordInDictionary()` function is a boolean function that checks if the word input is a valid word. It is done by checking if the word is in the dictionary file where the 5-letter word is saved.
 
-### 5) wordle.h
+### 5) `wordle.h`
 
 This file is a header file corresponding to wordle.cpp file, which declares the functions in the wordle.cpp so that they can be used in a separate main.cpp file.
 
 It declares the following functions:
-* isValid()
-* convertLowercase()
-* isWordInDictionary()
+* `isValid()`
+* `convertLowercase()`
+* `isWordInDictionary()`
   
 ---
 
