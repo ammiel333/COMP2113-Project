@@ -28,17 +28,18 @@ bool isWordInDictionary(const std::string& word, const std::string& dictionaryFi
     std::ifstream file(dictionaryFile);
     std::string dictWord;
 
-    // 파일을 열 수 있는지 확인
+    // Checking if the txt file can be opened
     if (!file.is_open()) {
+        std::cerr << "Failed to open the dictionary file" << std::endl;
         return false;
     }
 
-    // 사전 파일에서 단어를 읽어 입력된 단어와 비교
+    // comparing the input with the words in the dictionary
     while (file >> dictWord) {
         if (dictWord == word) {
-            return true; // 단어가 사전에 존재함
+            return true; // The word is in the dictionary
         }
     }
 
-    return false; // 단어가 사전에 없음
+    return false; // The word is not in the dictionary
 }
