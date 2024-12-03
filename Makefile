@@ -11,6 +11,9 @@ all: wordle
 wordle: $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o wordle
 
+wordle_main2.o: wordle_main2.cpp wordle.h
+	$(CC) $(CFLAGS) -c wordle_main2.cpp
+
 wordle-debug: $(OBJS)
 	NIX_HARDENING_ENABLE= $(CXX) $(CXXFLAGS) -O0 $(OBJS) -o wordle-debug
 
