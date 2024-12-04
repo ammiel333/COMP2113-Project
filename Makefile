@@ -1,21 +1,18 @@
 CXX = clang++
 override CXXFLAGS += -g -Wall -Werror -pedantic-errors -std=c++11
 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print | sed -e 's/ /\\ /g')
-HEADERS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.h' -print)
+SRCS = $(wildcard *.cpp)
+HEADERS = $(wildcard *.h)
 
 OBJS = $(SRCS:.cpp=.o)
 
 all: wordle
 
 wordle: $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o wordle
-
-wordle_main2.o: wordle_main2.cpp wordle.h
-	$(CC) $(CFLAGS) -c wordle_main2.cpp
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 wordle-debug: $(OBJS)
-	NIX_HARDENING_ENABLE= $(CXX) $(CXXFLAGS) -O0 $(OBJS) -o wordle-debug
+	NIX_HARDENING_ENABLE= $(CXX) $(CXXFLAGS) -O0 $(OBJS) -o $@
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
