@@ -19,7 +19,7 @@
 #define B_MAGENTA "\033[45m"    /* Magenta */
 #define B_CYAN    "\033[46m"    /* Cyan */
 #define B_WHITE   "\033[47m"    /* White */
-#define B_GRAY "\033[47m"      /* Gray */
+#define B_GRAY "\033[100m"      /* Gray */
 
 
 void gameInstructions();
