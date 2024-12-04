@@ -85,24 +85,3 @@ std::string CorrectGuess(const std::string& targetWord, const std::string& guess
 
     return finalFeedback;
 }
-
-int main() {
-    // Hard code the target word
-    std::string targetWord = "letter";
-
-    // Input a guess word
-    std::string guess;
-    std::cout << "Enter your guess: ";
-    std::cin >> guess;
-
-    std::vector<bool> found(targetWord.size(), false);
-
-    // Display the target word and guess
-    std::cout << "Target Word: " << targetWord << "\n";
-    std::cout << "Your Guess: " << guess << "\n";
-
-    // Provide feedback on the guess
-    std::cout << "Feedback: " << CorrectGuess(targetWord, guess, found, true) << "\n";
-
-    return 0;
-}
