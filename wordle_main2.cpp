@@ -1,4 +1,6 @@
 #include "wordle.h"
+#include <iostream>
+#include <fstream>
 
 void gameInstructions(){
     /*Game instructions*/
