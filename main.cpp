@@ -5,7 +5,7 @@
 #include "generateRandomWord.h"
 #include "wordle.h"
 #include "hint.h" 
-#include "wordle_main2.h"
+#include "gamemessage.h"
 using namespace std; 
 
 int main() {
