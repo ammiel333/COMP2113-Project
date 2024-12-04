@@ -13,7 +13,7 @@ struct WordList {
     string* words;    // Pointer to the dynamically allocated array of words 
     int size;         // Number of words in the array 
 
-}
+};
 
 // Function to load words from file into an array
 WordList loadWords(const string& fileName) {
@@ -31,7 +31,7 @@ WordList loadWords(const string& fileName) {
     }
 
     int count = 0;    // Initialize the variable to count the number of words in the file
-    string word;      // Define a varaible to store each word of the file
+    string word;      // Define a variable to store each word of the file
 
     // Reads words from the file and counts
     while (fin >> word) {
@@ -40,7 +40,7 @@ WordList loadWords(const string& fileName) {
 
     }
 
-    // Preperation for re-readinf the file 
+    // Preparation for re-reading the file 
     fin.clear();        // Clear the stream state
     fin.seekg(0);       // Reset the file pointer to the beginning of the file
 
