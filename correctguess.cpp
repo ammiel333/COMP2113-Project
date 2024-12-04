@@ -63,55 +63,14 @@ std::string CorrectGuess(const std::string& targetWord, const std::string& guess
     std::string finalFeedback;
     for (size_t i = 0; i < feedback.size(); ++i) {
         if (feedback[i] == 'G') { // Green
-        """
-            if (useColors) {
-                finalFeedback += GREEN + std::string(1, guess[i]) + RESET;
-            } else {
-                finalFeedback += "[G]" + std::string(1, guess[i]);
-            }
-        """    
+            finalFeedback += "[G]" + std::string(1, guess[i]); 
         } else if (feedback[i] == 'Y') { // Yellow
-            if (useColors) {
-                finalFeedback += YELLOW + std::string(1, guess[i]) + RESET;
-            } else {
-                finalFeedback += "[Y]" + std::string(1, guess[i]);
-            }
+            finalFeedback += "[Y]" + std::string(1, guess[i]);
         } else { // Grey
-            if (useColors) {
-                finalFeedback += GREY + std::string(1, guess[i]) + RESET;
-            } else {
-                finalFeedback += "[X]" + std::string(1, guess[i]);
+            finalFeedback += "[X]" + std::string(1, guess[i]);
             }
         }
     }
 
     return finalFeedback;
-}
-
-
-int main() {
-    // Hard code the target word
-    std::string targetWord = "LETTER";
-
-    // Input a guess word
-    std::string guess;
-    std::cout << "Enter your guess: ";
-    std::cin >> guess;
-
-    // Initialize the vector to track found positions
-    std::vector<bool> found(targetWord.length(), false);
-
-    // Call the CorrectGuess function with colors enabled
-    std::string feedbackColored = CorrectGuess(targetWord, guess, found, true);
-    std::cout << "Feedback (Colored):\n" << feedbackColored << std::endl;
-
-    return 0;
-
-
-"""
-    // Call the CorrectGuess function with colors disabled
-    std::string feedbackNonColored = CorrectGuess(targetWord, guess, found, false);
-    std::cout << "Feedback (Non-Colored):\n" << feedbackNonColored << std::endl;
-
-    return 0;
 }
