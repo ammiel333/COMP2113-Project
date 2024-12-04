@@ -29,7 +29,7 @@ int main() {
     gameInstructions();  
 
     while (attempt <= maxAttempts){
-        cout << "Input word for attempt " << attempt <<"/" << maxAttempts << ": "<< endl; 
+        cout << "\nInput word for attempt " << attempt <<"/" << maxAttempts << ": "<< endl; 
         cin >> inputWord;
 
         //if user quits the game
@@ -48,7 +48,7 @@ int main() {
                 if(hintIndex == -1){
                     cout << "All the letters of the answer have already been revealed. No hint available. " << endl; 
                 } else {
-                    cout << "Hint: The letter '"<< answer[hintIndex] << "'is at position " << hintIndex + 1 << "." << endl;
+                    cout << "Hint: The letter '"<< B_GREEN << BLACK << " " << answer[hintIndex] << " " << RESET << "' is at position " << hintIndex + 1 << "." << endl;
                 }
             } else {
                 cout << "Hint is already used." << endl;

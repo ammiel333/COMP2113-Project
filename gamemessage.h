@@ -2,10 +2,10 @@
 #define GAMEMESSAGE_H
 #include <string>
 
-constexpr const char* BLACK = "\033[30m"; /* Black */
-constexpr const char* B_GREEN = "\033[42m"; /* Green */
-constexpr const char* B_YELLOW = "\033[43m"; /* Yellow */
-constexpr const char* B_GRAY = "\033[100m"; /* Gray */
+constexpr const char* BLACK = "\033[38;5;0m"; /* Black */
+constexpr const char* B_GREEN = "\033[48;5;157m"; /* Green */
+constexpr const char* B_YELLOW = "\033[48;5;228m"; /* Yellow */
+constexpr const char* B_GRAY = "\033[48;5;251m"; /* Gray */
 constexpr const char* RESET = "\033[0m"; /* Reset */
 
 void gameInstructions();

@@ -4,10 +4,10 @@
 
 // ANSI color codes for terminal output
 
-const std::string BLACK = "\033[30m";  //black text
-const std::string B_GREEN = "\033[1;42m";  // green for correct position
-const std::string B_YELLOW = "\033[1;43m"; // yellow for correct letter, wrong position
-const std::string B_GREY = "\033[1;100m";   // grey for incorrect letter
+const std::string BLACK = "\033[38;5;0m";  //black text
+const std::string B_GREEN = "\033[48;5;157m";  // green for correct position
+const std::string B_YELLOW = "\033[48;5;228m"; // yellow for correct letter, wrong position
+const std::string B_GREY = "\033[48;5;251m";   // grey for incorrect letter
 const std::string RESET = "\033[0m";   // reset to default color
 
 std::string CorrectGuess(const std::string& targetWord, const std::string& guess, std::vector<bool>& found, bool useColors) {
@@ -66,19 +66,19 @@ std::string CorrectGuess(const std::string& targetWord, const std::string& guess
     for (size_t i = 0; i < feedback.size(); ++i) {
         if (feedback[i] == 'G') { // green
             if (useColors) {
-                finalFeedback += B_GREEN + BLACK + std::string(1, guess[i]) + " " + RESET;
+                finalFeedback += B_GREEN + BLACK + " " + std::string(1, guess[i]) + " " + RESET;
             } else {
                 finalFeedback += "[G]" + std::string(1, guess[i]);
             }
         } else if (feedback[i] == 'Y') { // yellow
             if (useColors) {
-                finalFeedback += B_YELLOW + BLACK + std::string(1, guess[i]) + " " + RESET;
+                finalFeedback += B_YELLOW + BLACK + " " + std::string(1, guess[i]) + " " + RESET;
             } else {
                 finalFeedback += "[Y]" + std::string(1, guess[i]);
             }
         } else { // grey
             if (useColors) {
-                finalFeedback += B_GREY + BLACK + std::string(1, guess[i]) + " " + RESET;
+                finalFeedback += B_GREY + BLACK + " " + std::string(1, guess[i]) + " " + RESET;
             } else {
                 finalFeedback += "[X]" + std::string(1, guess[i]);
             }

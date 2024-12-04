@@ -18,7 +18,7 @@ void gameInstructions(){
     std::cout << "A " << BLACK << B_GRAY << "GRAY" << RESET << " tile means that the letter is NOT in the word.\n\n";
     sleep(1);
     std::cout << "Type \"quit\" anytime to quit the game. " << std::endl; 
-    std::cout << "Type \"hint\" anytime to get one of the alphabets and its location randomly. You only have one hint. " << std::endl; 
+    std::cout << "Type \"hint\" anytime to get one of the alphabets and its location randomly. You only have one hint. \n" << std::endl; 
     sleep(1);
     std::cout << "Good luck with your guesses!\n";
 }
@@ -50,5 +50,9 @@ void earlyEndGame(const int & currentTry, const std::string & input2, const int 
         std::cout << "The 6 chances to guess the answer have been used up!\n";
         }
     sleep(1);
-    std::cout << "The correct answer is " << word << ".\n";
+    std::cout << "The correct answer is ";
+    for (size_t i = 0; i < word.length(); ++i) {
+        std::cout << B_GREEN << " " << word[i] << " ";
+    }
+    std::cout << RESET << ".\n";
 }
