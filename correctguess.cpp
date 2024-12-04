@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+// accounts for both coloured text output and not coloured output
+// latter case will print things like [G] to indicate correct letters and so on
 
 std::string CorrectGuess(const std::string& targetWord, const std::string& guess, std::vector<bool>& found, bool useColors) {
     std::string feedback; // declaring the feedback string to return
