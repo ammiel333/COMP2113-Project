@@ -28,4 +28,4 @@ void endGame(const int & currentTry);
 
 void earlyEndGame(const int & currentTry, const std::string & input2, const int & present, const std::string & word, const bool & match);
 
-#endif 
+#endif
