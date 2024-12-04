@@ -1,6 +1,9 @@
 #include "wordle.h"
 #include <iostream>
 #include <fstream>
+#include <string> 
+#include <vector> 
+#include <unistd.h> 
 
 void gameInstructions(){
     /*Game instructions*/
@@ -19,36 +22,6 @@ void gameInstructions(){
     sleep(1);
     std::cout << "Good luck with your guesses!\n";
 }
-
-void printResults(std::vector<std::vector<char>> & charr, std::vector<std::vector<bool>> & found, std::vector<std::string> & tries, const int & present){ /*printing out user input of tries*/
-    std::cout << "*****************\n";
-    int len1 = charr.size();
-    for (int i=0; i<len1; i++){
-        std::cout << "| ";
-        int len2 = charr[i].size();
-        for(int s=0; s<len2; s++){
-            
-            if((charr[i][s] == 'G') && (found[i][s] == 1)){ /*correct char and correct pos*/
-                std::cout << BLACK << B_GREEN;
-            }
-            else if((charr[i][s] != 'G') && (found[i][s] == 1)){    /*user input char correct but wrong pos*/
-                std::cout << BLACK << B_YELLOW;
-            }
-            else{   
-                int len3 = charr.size() - 1;
-                if(i == len3 && s == present){
-                    std::cout << BLACK << B_MAGENTA;
-                }
-                else{
-                    std::cout << BLACK << B_GRAY;    /*user input char incorrect*/
-                }
-            }
-            std::cout << tries[i][s] << RESET << " |" ;
-        }
-        std::cout << "\n*****************\n";
-    }
-    
-};
 
 void endGame(const int & currentTry){
     if(currentTry == 1){    
