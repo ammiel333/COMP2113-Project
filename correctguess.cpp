@@ -1,87 +1,93 @@
+#include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
-
-// ANSI color codes for terminal output
-const std::string GREEN = "\033[32m";   // green for correct position
-const std::string YELLOW = "\033[33m"; // yellow for correct letter, wrong position
-const std::string GREY = "\033[90m";   // grey for incorrect letter
-const std::string RESET = "\033[0m";   // reset to default color
+// accounts for both coloured text output and not coloured output
+// latter case will print things like [G] to indicate correct letters and so on
 
 std::string CorrectGuess(const std::string& targetWord, const std::string& guess, std::vector<bool>& found, bool useColors) {
-    std::string feedback;                        // the feedback string to return
-    std::vector<bool> used(targetWord.size(), false); // tracks letters in the target word already matched (green/yellow)
+    std::string feedback; // declaring the feedback string to return
+    std::vector<bool> used(targetWord.length(), false); // tracks which positions in the target word are "used" or "taken"
 
-    // initialize the feedback string
-    feedback.resize(targetWord.size(), '_');
-
-    // first pass: check for green matches (correct letter and correct position)
-    for (size_t i = 0; i < targetWord.size(); ++i) {
-        if (guess[i] == targetWord[i]) { // correct letter in the correct position
+    // First pass: Check for letters in the correct position (will begreen)
+    for (size_t i = 0; i < targetWord.length(); ++i) {
+        if (guess[i] == targetWord[i]) {
             if (useColors) {
-                feedback[i] = 'G'; // placeholder for green
+                feedback += "\033[32m"; // green color for correct position
+                feedback += guess[i];
+                feedback += "\033[0m";  // reset the color
             } else {
-                feedback[i] = 'G'; // non-color placeholder for green
+                feedback += "[G]"; // indicate the correct position without color
+                feedback += guess[i];
             }
-            found[i] = true;  // mark the letter as matched for green
-            used[i] = true;   // mark this letter in the target word as used/taken
+            found[i] = true;  // mark as found in the correct position
+            used[i] = true;   // mark this position in the target word as used/taken
+        } else {
+            feedback += "_"; // temporary placeholder for now
         }
     }
 
-    // second pass: check for yellow matches (correct letter, wrong position)
-    for (size_t i = 0; i < targetWord.size(); ++i) {
-        if (feedback[i] == 'G') { // skip green matches
-            continue;
-        }
+    // Second pass: Check for letters in the wrong position (will be yellow)
+    for (size_t i = 0; i < targetWord.length(); ++i) {
+        if (feedback[i] == '_') { // if not already marked as correct
+            bool isFound = false;
 
-        // look for the letter in the target word (wrong position)
-        bool isYellow = false;
-        for (size_t j = 0; j < targetWord.size(); ++j) {
-            if (!used[j] && guess[i] == targetWord[j]) { // correct letter, but not used yet
-                isYellow = true;
-                used[j] = true; // mark this letter in the target word as used
-                break;
+            // Check if the letter exists elsewhere in the target word
+            for (size_t j = 0; j < targetWord.length(); ++j) {
+                if (!used[j] && guess[i] == targetWord[j]) {
+                    isFound = true;
+                    used[j] = true; // mark this position in the target word as used/taken
+                    break;
+                }
             }
-        }
 
-        if (isYellow) {
-            if (useColors) {
-                feedback[i] = 'Y'; // placeholder for yellow
+            if (isFound) {
+                if (useColors) {
+                    feedback[i] = '\033'; // adding yellow coloring (wrong position but right letter)
+                    feedback += "\033[33m"; // yellow color
+                    feedback += guess[i];
+                    feedback += "\033[0m";  // reset color
+                } else {
+                    feedback += "[Y]"; // indicate wrong position with correct letter without color
+                    feedback += guess[i];
+                }
             } else {
-                feedback[i] = 'Y'; // non-color placeholder for yellow
-            }
-        } else { // if not green or yellow, it must be grey
-            if (useColors) {
-                feedback[i] = 'X'; // placeholder for grey
-            } else {
-                feedback[i] = 'X'; // non-color placeholder for grey
-            }
-        }
-    }
-
-    // third pass: build the final feedback string with colors or plain text. the actual product of this function
-    std::string finalFeedback;
-    for (size_t i = 0; i < feedback.size(); ++i) {
-        if (feedback[i] == 'G') { // green
-            if (useColors) {
-                finalFeedback += GREEN + std::string(1, guess[i]) + RESET;
-            } else {
-                finalFeedback += "[G]" + std::string(1, guess[i]);
-            }
-        } else if (feedback[i] == 'Y') { // yellow
-            if (useColors) {
-                finalFeedback += YELLOW + std::string(1, guess[i]) + RESET;
-            } else {
-                finalFeedback += "[Y]" + std::string(1, guess[i]);
-            }
-        } else { // grey
-            if (useColors) {
-                finalFeedback += GREY + std::string(1, guess[i]) + RESET;
-            } else {
-                finalFeedback += "[X]" + std::string(1, guess[i]);
+                // Third pass: Handle incorrect letters (will be grey)
+                if (useColors) {
+                    feedback += "\033[90m"; // grey color for incorrect letter
+                    feedback += guess[i];
+                    feedback += "\033[0m";  // reset color
+                } else {
+                    feedback += "[X]"; // indicate wrong letter without color
+                    feedback += guess[i];
+                }
             }
         }
     }
 
-    return finalFeedback;
+    return feedback;
+}
+
+
+int main() {
+    // Hard code the target word
+    std::string targetWord = "HELLO";
+
+    // Input a guess word
+    std::string guess;
+    std::cout << "Enter your guess: ";
+    std::cin >> guess;
+
+    // Initialize the vector to track found positions
+    std::vector<bool> found(targetWord.length(), false);
+
+    // Call the CorrectGuess function with colors enabled
+    std::string feedbackColored = CorrectGuess(targetWord, guess, found, true);
+    std::cout << "Feedback (Colored):\n" << feedbackColored << std::endl;
+
+
+    // Call the CorrectGuess function with colors disabled
+    std::string feedbackNonColored = CorrectGuess(targetWord, guess, found, false);
+    std::cout << "Feedback (Non-Colored):\n" << feedbackNonColored << std::endl;
+
+    return 0;
 }
