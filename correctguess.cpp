@@ -85,9 +85,6 @@ int main() {
     std::cout << "Feedback (Colored):\n" << feedbackColored << std::endl;
 
 
-    // Call the CorrectGuess function with colors disabled
-    std::string feedbackNonColored = CorrectGuess(targetWord, guess, found, false);
-    std::cout << "Feedback (Non-Colored):\n" << feedbackNonColored << std::endl;
 
     return 0;
 }
