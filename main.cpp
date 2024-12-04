@@ -13,11 +13,19 @@ int main() {
     const int maxAttempts = 6; 
     int attempt = 1; 
     string inputWord; 
-    WordList wordList = loadWords(dictionaryFile);
-    string answer = generateRandomWord(wordList); 
-    bool guessedCorrectly = false, hintUsed = false; 
-    vector <bool> found = {false, false, false, false, false}; 
 
+    //Load word list from the dictionary file 
+    WordList wordList = loadWords(dictionaryFile);
+
+    //Generate random answer from the word List 
+    string answer = generateRandomWord(wordList); 
+    convertLowercase(answer); 
+
+    
+    bool guessedCorrectly = false, hintUsed = false; 
+    vector <bool> found(answer.size(), false); 
+
+    //Display game instructions 
     gameInstructions();  
 
     while (attempt <= maxAttempts){
@@ -31,21 +39,24 @@ int main() {
             return 0; 
         }
 
+        //If user requests a hint 
         if (inputWord == "hint"){
             if(!hintUsed){
                 hintUsed = true; 
                 int hintIndex = hintLocation(found); 
-    
+                
                 if(hintIndex == -1){
-                    cout << "You already know all letters of the answer." << endl; 
-                    continue; 
+                    cout << "All the letters of the answer have already been revealed. No hint available. " << endl; 
+                } else {
+                    cout << "Hint: The letter '"<< answer[hintIndex] << "'is at position " << hintIndex + 1 << "." << endl;
                 }
-                cout << "Hint: The letter '"<< answer[hintIndex] << "'is at postion " << hintIndex + 1 << "." << endl; 
+            } else {
+                cout << "Hint is already used." << endl;
             }
-            else {cout << "Hint is already used." << endl;}
             continue; 
         }
 
+        //convert user input to lowercase
         convertLowercase(inputWord); 
 
         //check if word is valid 
@@ -54,7 +65,7 @@ int main() {
             continue; 
         }
 
-        //check if the word is not in dictionary 
+        //check if the word is in dictionary 
         if (!isWordInDictionary(inputWord, dictionaryFile)){
             cout << "Not in the wordlist, please try again." << endl; 
             continue; 
