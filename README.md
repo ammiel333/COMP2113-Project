@@ -9,6 +9,7 @@ Jennifer0903 - Jaeyoung Shim (3035899266) <br />
 codeoflassitude - Kashaf Shahid (3036181719) <br />
 ammiel333 - Sungmin Kim (3036136001) <br />
 dkyng1125 - Dokyung Yun (3036135631) <br />
+youarethexie - To Tsz Yeung (3036063010)  <br />
 
 ---
 
@@ -151,3 +152,26 @@ This is a header file for `correctguess.cpp` file.
 
 It declares the following function:
 `CorrectGuess()`
+
+---
+
+## 5. To Tsz Yeung (3036063010)
+
+### 10) `gamemessage.cpp`
+
+This file contains code that provides the game message when the player enters the game and finishs the game.
+
+* **Game Instructions**: uses function `gameInstructions()` to show the instruction when the player enters the game
+* **End Game Message**: use function `endGame()` to show the endgame message if the player successfully beats the game
+* **Early EndGame Message()** : use function `earlyEndGame()` to show the earlyendgame message if the player fails the game no matter by quitting or by losing
+
+### 11) `gamemessage.h`
+
+This is a header file for `gamemessage.cpp` file.
+
+It declares the following function:
+`gameInstructions()`
+`endGame()`
+`earlyEndGame()`
+
+---
