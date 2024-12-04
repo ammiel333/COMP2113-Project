@@ -1,5 +1,5 @@
-#ifndef WORDLE_H
-#define WORDLE_H
+#ifndef WORDLE_MAIN2_H
+#define WORDLE_MAIN2_H
 #include <string>
 
 void gameInstructions();
