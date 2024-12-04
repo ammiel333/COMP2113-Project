@@ -130,4 +130,24 @@ It declares the following structure and functions:
 
 ---
 
+## 4. Kashaf Shahid (3036181719)
+### 8) `correctguess.cpp`
 
+This file contains code that provides feedback for a player's guessed word compared to the randomly generated word, which is the target word, by analyzing the correctness of each character. The function returns feedback in three forms:
+
+* **Green**: Letters are in the correct position
+* **Yellow**: Letters that exist in the target word but are in the wrong position
+* **Grey**: Letters that do not exist in the target word
+
+This color-coded feedback is useful for guiding the player toward the correct word over several attempts. The function supports both colored terminal output (using ANSI escape codes) and plain-text feedback for non-color environments.
+
+Important Features of the Code:
+* **Handles Repeated Letters Properly:** the function ensures that repeated letters in the guess do not incorrectly match more times than they appear in the target word.
+* **Colored Output for Terminal and Non-Color Output for Compatibility:** the function uses ANSI escape codes to provide feedback in green, yellow, and grey when useColors is set to true. For environments where colors are not supported, the function provides plain text with [G], [Y], and [X] indicators for green, yellow, and grey feedback, respectively.
+* **Dynamic and Scalable:** the function dynamically adapts to words of any length.
+
+### 9) `correctguess.h`
+This is a header file for `correctguess.cpp` file.
+
+It declares the following function:
+`CorrectGuess()`
