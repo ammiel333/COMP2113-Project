@@ -26,25 +26,25 @@ void gameInstructions(){
 void endGame(const int & currentTry){
     std::cout << "You got the answer in " << currentTry << " tries !\n";
     switch(currentTry){
-        case 1: std::cout << "Genius!"; break;
-        case 2: std::cout << "Magnificent!"; break;
-        case 3: std::cout << "Impressive!"; break;
-        case 4: std::cout << "Splendid!"; break;
+        case 1: std::cout << "Magnificent!"; break;
+        case 2: std::cout << "Superb!"; break;
+        case 3: std::cout << "Excellent!"; break;
+        case 4: std::cout << "Outstanding!"; break;
         case 5: std::cout << "Great!"; break;
-        case 6: std::cout << "Close!"; break;
+        case 6: std::cout << "Nice!"; break;
         }
     std::cout << "\n";
 }                   
 
 void earlyEndGame(const int & currentTry, const std::string & input2, const int & present, const std::string & word, const bool & match){
     if(input2 == "quit" && currentTry <= 6){
-        std::cout << "It's sad you gave up trying!\n";
+        std::cout << "It is unfortunate that you gave up!\n";
         }
     else if(present != -1){
-        std::cout << "You're too unlucky!\n"; 
+        std::cout << "Unlucky!\n"; 
     }
     else if(currentTry == 6 && match != 1){
-        std::cout << "The 6 chances to guess the answer have been used up!\n";
+        std::cout << "You used up all the chances to guess the answer!\n";
         }
     sleep(1);
     std::cout << "The correct answer is ";
