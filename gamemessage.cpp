@@ -7,26 +7,23 @@
 
 void gameInstructions(){
     /*Game instructions*/
-    std::cout << "Welcome to WORDLE!\n" << "These are the rules of the game! \n\n";
+    std::cout << "Welcome to WORDLE game!\n\n";
     sleep(1);
-    std::cout << "Wordle is a simple game in which you have to guess a five-letter word.\n" ;
-    std::cout << "You have 6 tries only. Each 5-word guess must be a valid word.\n\n";
+    std::cout << "Wordle is a game which challenges you to guess a five-letter word.\n" ;
+    std::cout << "You have 6 tries. Each guess should be a valid word.\n\n";
     sleep(1);
-    std::cout << "The colour of the tile will change to show you how close your guess was.\n";
-    std::cout << "A " << BLACK << B_GREEN << "GREEN" << RESET << " tile means that the letter is in the word AND in the right spot.\n";
-    std::cout << "A "  << BLACK << B_YELLOW << "YELLOW" << RESET << " tile means that the letter is in the word BUT NOT in the right spot.\n";
-    std::cout << "A " << BLACK << B_GRAY << "GRAY" << RESET << " tile means that the letter is NOT in the word.\n\n";
+    std::cout << "The color of the letter will change to indicate how close your guess was.\n";
+    std::cout << "A " << BLACK << B_GREEN << "GREEN" << RESET << " means that the letter is in the word AND in the right position.\n";
+    std::cout << "A "  << BLACK << B_YELLOW << "YELLOW" << RESET << " means that the letter is in the word but NOT in the right position.\n";
+    std::cout << "A " << BLACK << B_GRAY << "GRAY" << RESET << " means that the letter is NOT in the word.\n\n";
     sleep(1);
-    std::cout << "Type \"quit\" anytime to quit the game. " << std::endl; 
-    std::cout << "Type \"hint\" anytime to get one of the alphabets and its location randomly. You only have one hint. \n" << std::endl; 
+    std::cout << "Type \"hint\" to get one of the alphabets and its location randomly. You only have one hint. \n" << std::endl; 
     sleep(1);
-    std::cout << "Good luck with your guesses!\n";
+    std::cout << "Type \"quit\" to quit the game. " << std::endl; 
+    std::cout << "Good luck!\n";
 }
 
 void endGame(const int & currentTry){
-    if(currentTry == 1){    
-        std::cout << "You got the answer with only " << currentTry << " try !\n";
-    }
     std::cout << "You got the answer in " << currentTry << " tries !\n";
     switch(currentTry){
         case 1: std::cout << "Genius!"; break;
@@ -34,7 +31,7 @@ void endGame(const int & currentTry){
         case 3: std::cout << "Impressive!"; break;
         case 4: std::cout << "Splendid!"; break;
         case 5: std::cout << "Great!"; break;
-        case 6: std::cout << "Phew!"; break;
+        case 6: std::cout << "Close!"; break;
         }
     std::cout << "\n";
 }                   
