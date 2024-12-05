@@ -61,7 +61,7 @@ int main() {
 
         //check if word is valid 
         if (!isValid(inputWord)){
-            cout << "Invalid input, please try again." << endl; 
+            cout << "Invalid input, please check if the input is a 5 letter word." << endl; 
             continue; 
         }
 
