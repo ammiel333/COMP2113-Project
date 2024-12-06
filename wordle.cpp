@@ -2,10 +2,11 @@
 #include <string>
 #include <fstream>
 
-bool isValid(std::string input){
+bool length_validation(std::string input){
   if(input.length() != 5){
-    return false;
-  }
+      return false;
+}
+bool isValid(std::string input){
   for (int i = 0; i < 5; i++){
     // 97 = a and 122 = z in lowercase
     if(input[i]<97 || input[i]>122){
