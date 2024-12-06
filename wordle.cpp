@@ -5,9 +5,11 @@
 bool length_validation(std::string input){
   if(input.length() != 5){
       return false;
+  }
+  return true; 
 }
 bool isValid(std::string input){
-  for (int i = 0; i < 5; i++){
+  for (int i = 0; i < input.length(); i++){
     // 97 = a and 122 = z in lowercase
     if(input[i]<97 || input[i]>122){
       return false;
