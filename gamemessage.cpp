@@ -43,7 +43,7 @@ void earlyEndGame(const int & currentTry, const std::string & input2, const int 
     else if(present != -1){
         std::cout << "Unlucky!\n"; 
     }
-    else if(currentTry == 6 && match != 1){
+    else if(currentTry == 6 && !match){
         std::cout << "You used up all the chances to guess the answer!\n";
         }
     sleep(1);
