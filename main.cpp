@@ -65,7 +65,7 @@ int main() {
             continue; 
         }
 
-        if (!length_validation(inputWord){
+        if (!length_validation(inputWord)){
             cout << "Invalid input, your input must be 5 letters. " << endl; 
             continue; 
         }
