@@ -12,7 +12,7 @@ void gameInstructions(){
     std::cout << "Wordle is a game which challenges you to guess a five-letter word.\n" ;
     std::cout << "You have 6 tries. Each guess should be a valid word.\n\n";
     sleep(1);
-    std::cout << "The color of the letter will change to indicate how close your guess was.\n";
+    std::cout << "The color of the letters change based on how close you are to the answer.\n";
     std::cout << "A " << BLACK << B_GREEN << "GREEN" << RESET << " means that the letter is in the word AND in the right position.\n";
     std::cout << "A "  << BLACK << B_YELLOW << "YELLOW" << RESET << " means that the letter is in the word but NOT in the right position.\n";
     std::cout << "A " << BLACK << B_GRAY << "GRAY" << RESET << " means that the letter is NOT in the word.\n\n";
