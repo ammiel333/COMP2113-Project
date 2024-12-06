@@ -61,7 +61,12 @@ int main() {
 
         //check if word is valid 
         if (!isValid(inputWord)){
-            cout << "Invalid input, please check if the input is a 5 letter word." << endl; 
+            cout << "Invalid input, Your input must be alphabets only." << endl; 
+            continue; 
+        }
+
+        if (!length_validation(inputWord){
+            cout << "Invalid input, your input must be 5 letters. " << endl; 
             continue; 
         }
 
@@ -87,7 +92,7 @@ int main() {
     }
 
     //when the user wasn't able to find the answer 
-    if (!guessedCorrectly){
+    if (attempt > maxAttempts && !guessedCorrectly){
         earlyEndGame(attempt, inputWord, -1, answer, guessedCorrectly); 
     }
 
