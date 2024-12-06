@@ -3,6 +3,8 @@
 
 #include <string>
 
+bool length_validation(std::string input); 
+
 bool isValid(std::string input);
 
 void convertLowercase(std::string& input);
