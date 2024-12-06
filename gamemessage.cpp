@@ -17,8 +17,8 @@ void gameInstructions(){
     std::cout << "A "  << BLACK << B_YELLOW << "YELLOW" << RESET << " means that the letter is in the word but NOT in the right position.\n";
     std::cout << "A " << BLACK << B_GRAY << "GRAY" << RESET << " means that the letter is NOT in the word.\n\n";
     sleep(1);
-    std::cout << "Type \"hint\" to get one of the alphabets and its location randomly. You only have one hint. \n" << std::endl; 
-    std::cout << "Type \"quit\" to quit the game. " << std::endl; 
+    std::cout << "Type \"hint\" to get one of the alphabets and its location randomly. You only have one hint." << std::endl; 
+    std::cout << "Type \"quit\" to quit the game. \n" << std::endl; 
     sleep(1); 
     std::cout << "Good luck!\n";
 }

@@ -93,7 +93,7 @@ int main() {
 
     //when the user wasn't able to find the answer 
     if (attempt > maxAttempts && !guessedCorrectly){
-        earlyEndGame(attempt, inputWord, -1, answer, guessedCorrectly); 
+        earlyEndGame(maxAttempts, inputWord, -1, answer, guessedCorrectly); 
     }
 
     freeWordList(wordList);
